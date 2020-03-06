@@ -37,15 +37,15 @@ piece7v="RMGS"
 piece8v="RBGS"
 piece9v="CBPT"
 
-p1=0
-p2=0
-p3=0
-p4=0
-p5=0
-p6=0
-p7=0
-p8=0
-p9=0
+p1=2
+p2=2
+p3=2
+p4=2
+p5=2
+p6=2
+p7=2
+p8=2
+p9=2
 
 fenetre.blit(fond, (0,0))
 resetrect=pygame.Rect(1140,617,150,150)
@@ -72,6 +72,7 @@ fenetre.blit(piece8,piecerect8)
 fenetre.blit(piece9,piecerect9)
 
 
+validation=pygame.Rect(0,0,150,150)
 
 case0=pygame.Rect(110,20,150,150)
 case1=pygame.Rect(270,20,150,150)
@@ -113,7 +114,7 @@ try:
                 #mouvement pièce 1
 
                 if pygame.mouse.get_pressed()[0]:
-                    if pygame.mouse.get_pos()[0] >= 800 and pygame.mouse.get_pos()[1] >= 100 and pygame.mouse.get_pos()[0] <= 1020 and pygame.mouse.get_pos()[1]<=320:
+                    if pygame.mouse.get_pos()[0] >= 800 and pygame.mouse.get_pos()[1] >= 100 and pygame.mouse.get_pos()[0] <= 1020 and pygame.mouse.get_pos()[1]<=320 and p1==2:
                         p1=1
                     if pygame.mouse.get_pos()[0] >= 110 and pygame.mouse.get_pos()[1] >= 20 and pygame.mouse.get_pos()[0] <= 260 and pygame.mouse.get_pos()[1]<= 170 and p1==1 :
                         piecerect1=case0
@@ -201,7 +202,7 @@ try:
 
 
 
-                    if pygame.mouse.get_pos()[0] >= 900 and pygame.mouse.get_pos()[1] >= 300 and pygame.mouse.get_pos()[0] <= 1020 and pygame.mouse.get_pos()[1]<=420:
+                    if pygame.mouse.get_pos()[0] >= 900 and pygame.mouse.get_pos()[1] >= 300 and pygame.mouse.get_pos()[0] <= 1020 and pygame.mouse.get_pos()[1]<=420 and p2==2:
                         p2=1
                     if pygame.mouse.get_pos()[0] >= 110 and pygame.mouse.get_pos()[1] >= 20 and pygame.mouse.get_pos()[0] <= 260 and pygame.mouse.get_pos()[1]<= 170 and p2==1 :
                         piecerect2=case0
@@ -290,7 +291,7 @@ try:
 
 
 
-                    if pygame.mouse.get_pos()[0] >= 900 and pygame.mouse.get_pos()[1] >= 450 and pygame.mouse.get_pos()[0] <= 1020 and pygame.mouse.get_pos()[1]<=570:
+                    if pygame.mouse.get_pos()[0] >= 900 and pygame.mouse.get_pos()[1] >= 450 and pygame.mouse.get_pos()[0] <= 1020 and pygame.mouse.get_pos()[1]<=570 and p3==2:
                         p3=1
                     if pygame.mouse.get_pos()[0] >= 110 and pygame.mouse.get_pos()[1] >= 20 and pygame.mouse.get_pos()[0] <= 260 and pygame.mouse.get_pos()[1]<= 170 and p3==1 :
                         piecerect3=case0
@@ -379,7 +380,7 @@ try:
 
 
 
-                    if pygame.mouse.get_pos()[0] >= 1020 and pygame.mouse.get_pos()[1] >= 150 and pygame.mouse.get_pos()[0] <= 1140 and pygame.mouse.get_pos()[1]<=270:
+                    if pygame.mouse.get_pos()[0] >= 1020 and pygame.mouse.get_pos()[1] >= 150 and pygame.mouse.get_pos()[0] <= 1140 and pygame.mouse.get_pos()[1]<=270 and p4==2:
                         p4=1
                     if pygame.mouse.get_pos()[0] >= 110 and pygame.mouse.get_pos()[1] >= 20 and pygame.mouse.get_pos()[0] <= 260 and pygame.mouse.get_pos()[1]<= 170 and p4==1 :
                         piecerect4=case0
@@ -465,7 +466,7 @@ try:
                     #mouvement pièce 5
 
 
-                    if pygame.mouse.get_pos()[0] >= 1020 and pygame.mouse.get_pos()[1] >= 300 and pygame.mouse.get_pos()[0] <= 1140 and pygame.mouse.get_pos()[1]<=420:
+                    if pygame.mouse.get_pos()[0] >= 1020 and pygame.mouse.get_pos()[1] >= 300 and pygame.mouse.get_pos()[0] <= 1140 and pygame.mouse.get_pos()[1]<=420 and p5==2:
                         p5=1
                     if pygame.mouse.get_pos()[0] >= 110 and pygame.mouse.get_pos()[1] >= 20 and pygame.mouse.get_pos()[0] <= 260 and pygame.mouse.get_pos()[1]<= 170 and p5==1 :
                         piecerect5=case0
@@ -551,7 +552,7 @@ try:
                     #mouvement pièce 6
 
 
-                    if pygame.mouse.get_pos()[0] >= 1020 and pygame.mouse.get_pos()[1] >= 450 and pygame.mouse.get_pos()[0] <= 1140 and pygame.mouse.get_pos()[1]<=570:
+                    if pygame.mouse.get_pos()[0] >= 1020 and pygame.mouse.get_pos()[1] >= 450 and pygame.mouse.get_pos()[0] <= 1140 and pygame.mouse.get_pos()[1]<=570 and p6==2:
                         p6=1
                     if pygame.mouse.get_pos()[0] >= 110 and pygame.mouse.get_pos()[1] >= 20 and pygame.mouse.get_pos()[0] <= 260 and pygame.mouse.get_pos()[1]<= 170 and p6==1 :
                         piecerect6=case0
@@ -637,7 +638,7 @@ try:
                      #mouvement pièce 7
 
 
-                    if pygame.mouse.get_pos()[0] >= 1020 and pygame.mouse.get_pos()[1] >= 10 and pygame.mouse.get_pos()[0] <= 1140 and pygame.mouse.get_pos()[1]<=130:
+                    if pygame.mouse.get_pos()[0] >= 1020 and pygame.mouse.get_pos()[1] >= 10 and pygame.mouse.get_pos()[0] <= 1140 and pygame.mouse.get_pos()[1]<=130 and p7==2:
                         p7=1
                     if pygame.mouse.get_pos()[0] >= 110 and pygame.mouse.get_pos()[1] >= 20 and pygame.mouse.get_pos()[0] <= 260 and pygame.mouse.get_pos()[1]<= 170 and p7==1 :
                         piecerect7=case0
@@ -723,7 +724,7 @@ try:
                      #mouvement pièce 8
 
 
-                    if pygame.mouse.get_pos()[0] >= 900 and pygame.mouse.get_pos()[1] >= 10 and pygame.mouse.get_pos()[0] <= 1020 and pygame.mouse.get_pos()[1]<=130:
+                    if pygame.mouse.get_pos()[0] >= 900 and pygame.mouse.get_pos()[1] >= 10 and pygame.mouse.get_pos()[0] <= 1020 and pygame.mouse.get_pos()[1]<=130 and p8==2:
                         p8=1
                     if pygame.mouse.get_pos()[0] >= 110 and pygame.mouse.get_pos()[1] >= 20 and pygame.mouse.get_pos()[0] <= 260 and pygame.mouse.get_pos()[1]<= 170 and p8==1 :
                         piecerect8=case0
@@ -810,7 +811,7 @@ try:
                     #mouvement pièce 9
 
 
-                    if pygame.mouse.get_pos()[0] >= 765 and pygame.mouse.get_pos()[1] >= 15 and pygame.mouse.get_pos()[0] <= 860 and pygame.mouse.get_pos()[1]<=105:
+                    if pygame.mouse.get_pos()[0] >= 765 and pygame.mouse.get_pos()[1] >= 15 and pygame.mouse.get_pos()[0] <= 860 and pygame.mouse.get_pos()[1]<=105 and p9==2:
                         p9=1
                     if pygame.mouse.get_pos()[0] >= 110 and pygame.mouse.get_pos()[1] >= 20 and pygame.mouse.get_pos()[0] <= 260 and pygame.mouse.get_pos()[1]<= 170 and p9==1 :
                         piecerect9=case0
@@ -867,6 +868,26 @@ try:
                         piecerect9=case15
                         p9=0
 
+                    #tests
+                    if pygame.mouse.get_pos()[0]<=100 :
+                        print ("test")
+                        for x in range (0,3):
+                            for i in range (0,3):
+                                if case[x][0][i]==case [x][1][i]==case[x][2][i]==case[x][3][i]:
+                                    print ("bien joué")
+                        for y in range (0,3):
+                            for i in range (0,3):
+                                if case [0][y][i]==case [1][y][i]==case [2][y][i]==case [3][y][i]:
+                                    print ("bien joué")
+                        for i in range (0,3):
+                            if case[0][0][i]==case [1][1][i]==case [2][2][i]==case [3][3][i]:
+                                print ("bien joué")
+
+                        for i in range (0,3):
+                            if case[0][3][i]==case [1][2][i]==case [2][1][i]==case [3][0][i]:
+                                print ("bien joué")
+
+
                     #bouton reset
                     if pygame.mouse.get_pos()[0] >= 1140 and pygame.mouse.get_pos()[1] >= 617 and pygame.mouse.get_pos()[0] <= 1302 and pygame.mouse.get_pos()[1]<=767:
                         piecerect1=pygame.Rect(900,150,100,50)
@@ -878,6 +899,16 @@ try:
                         piecerect7=pygame.Rect(1020,10,100,50)
                         piecerect8=pygame.Rect(870,10,100,50)
                         piecerect9=pygame.Rect(765,10,95,99)
+
+                        p1=2
+                        p2=2
+                        p3=2
+                        p4=2
+                        p5=2
+                        p6=2
+                        p7=2
+                        p8=2
+                        p9=2
 
 
 
@@ -899,6 +930,7 @@ try:
         fenetre.blit(piece7,piecerect7)
         fenetre.blit(piece8,piecerect8)
         fenetre.blit(piece9,piecerect9)
+
         pygame.display.flip()
 
 
