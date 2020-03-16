@@ -15,13 +15,13 @@ fenetre = pygame.display.set_mode((1302, 739))
 piecerect1=pygame.Rect(50,50,100,50)
 
 #Chargement et collage du fond
-#lige inutile
 
-fond = pygame.image.load("fond.png").convert() # insere une image et la convertie au bon format"perso= pygame.image.load("perso.png").convert_alpha()
+
+fond = pygame.image.load("image/fond.png").convert() # insere une image et la convertie au bon format"perso= pygame.image.load("perso.png").convert_alpha()
 
 #Chargement et collage du pouce et du bouton restart
-lepouce= pygame.image.load("lepouce.png").convert_alpha()
-reset = pygame.image.load("piece/restart.png").convert_alpha()
+lepouce= pygame.image.load("image/lepouce.png").convert_alpha()
+reset = pygame.image.load("image/restart.png").convert_alpha()
 
 #chargement et collage des pieces
 piece1 = pygame.image.load("piece/1.1.png").convert_alpha()
@@ -57,7 +57,7 @@ piecev=[piece1v,piece2v,piece3v,piece4v,piece5v,piece6v,piece7v,piece8v,piece9v,
 
 
 #creation de la liste p
-p=[2 for i in range(11)]
+p=[2 for i in range(16)]
 
 
 # définition des rectangles dans lesquelles aparaissent les pieces
@@ -117,6 +117,8 @@ case15=pygame.Rect(590,500,150,150)
 
 cord_case = [case0, case1, case2,case3,case4,case5,case6,case7,case8,case9,case10,case11,case12,case13,case14,case15]
 
+c=[0 for i in range (16)]
+
 
 #création liste des cases
 case=[["OOOO" for i in range(4) ] for i in range(4) ]
@@ -152,10 +154,12 @@ try:
 
                         for r in range (16):
 
-                            if cord_case[r].collidepoint(pos) and p[i]==1 :
+                            if cord_case[r].collidepoint(pos) and p[i]==1 and c[r]==0 :
                                 cord_piece[i]=cord_case[r]
                                 p[i]=0
+                                c[r]=1
                                 case[r//4][r%4]=piecev[i]
+
                                 print ("case",r)
 
 
@@ -173,20 +177,21 @@ try:
                     #bouton reset
                     if resetrect.collidepoint(pos):
                         print("restart")
-                        cord_piece[0]=pygame.Rect(900,150,100,100)
-                        cord_piece[1]=pygame.Rect(900,300,100,100)
-                        cord_piece[2]=pygame.Rect(900,450,100,100)
-                        cord_piece[3]=pygame.Rect(1020,150,100,100)
-                        cord_piece[4]=pygame.Rect(1020,300,100,100)
-                        cord_piece[5]=pygame.Rect(1020,450,100,100)
+                        cord_piece[0]=pygame.Rect(900,150,120,150)
+                        cord_piece[1]=pygame.Rect(900,300,120,150)
+                        cord_piece[2]=pygame.Rect(900,450,120,150)
+                        cord_piece[3]=pygame.Rect(1020,150,100,150)
+                        cord_piece[4]=pygame.Rect(1020,300,100,150)
+                        cord_piece[5]=pygame.Rect(1020,450,100,150)
                         cord_piece[6]=pygame.Rect(1020,10,100,100)
                         cord_piece[7]=pygame.Rect(870,10,100,100)
-                        cord_piece[8]=pygame.Rect(759,15,95,99)
-                        cord_piece[9]=pygame.Rect(765,150,95,99)
+                        cord_piece[8]=pygame.Rect(759,15,95,120)
+                        cord_piece[9]=pygame.Rect(765,150,95,120)
                         cord_piece[10]=pygame.Rect(765,275,95,99)
 
-                        for i in range (11):
+                        for i in range (16):
                             p[i]=2
+                            c[i]=0
 
                         for x in range (4):
                             for y in range (4):
