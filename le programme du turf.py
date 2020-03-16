@@ -51,7 +51,7 @@ piece7v="RMGS"
 piece8v="RBGS"
 piece9v="CBPT"
 piece10v="CMPT"
-piece11v="CBGS"
+piece11v="CBPS"
 #creation de la liste de chaines de caractere des pieces
 piecev=[piece1v,piece2v,piece3v,piece4v,piece5v,piece6v,piece7v,piece8v,piece9v,piece10v,piece11v]
 
