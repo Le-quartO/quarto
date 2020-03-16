@@ -15,6 +15,7 @@ fenetre = pygame.display.set_mode((1302, 739))
 piecerect1=pygame.Rect(50,50,100,50)
 
 #Chargement et collage du fond
+#lige inutile
 
 fond = pygame.image.load("fond.png").convert() # insere une image et la convertie au bon format"perso= pygame.image.load("perso.png").convert_alpha()
 
