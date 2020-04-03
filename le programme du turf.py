@@ -35,10 +35,10 @@ piece8 = pygame.image.load("piece/8.png").convert_alpha()
 piece9 = pygame.image.load("piece/9.png").convert_alpha()
 piece10 = pygame.image.load("piece/10.png").convert_alpha()
 piece11 = pygame.image.load("piece/11.png").convert_alpha()
-piece12 = pygame.image.load("piece/11.png").convert_alpha()
+piece12 = pygame.image.load("piece/12.png").convert_alpha()
 
 #création de la liste piece
-piece=[piece1,piece2,piece3,piece4,piece5,piece6,piece7,piece8,piece9,piece10,piece11]
+piece=[piece1,piece2,piece3,piece4,piece5,piece6,piece7,piece8,piece9,piece10,piece11,piece12]
 
 #création des chaines de caractères des pièces
 #R = rond ou C = carré  ; B = beige ou M = marron  ; G = grande ou P = petite  ; T = avec trou ou S = sans trou.
@@ -78,7 +78,7 @@ piecerect10=pygame.Rect(765,150,95,99)
 piecerect11=pygame.Rect(765,275,95,99)
 piecerect12=pygame.Rect(765,300,95,99)
 
-cord_piece=[piecerect1,piecerect2,piecerect3,piecerect4,piecerect5,piecerect6,piecerect7,piecerect8,piecerect9,piecerect10,piecerect11,]
+cord_piece=[piecerect1,piecerect2,piecerect3,piecerect4,piecerect5,piecerect6,piecerect7,piecerect8,piecerect9,piecerect10,piecerect11,piecerect12]
 
 lepoucerect=pygame.Rect(950,575,138,157)
 
@@ -136,9 +136,6 @@ pygame.display.flip()
 #BOUCLE INFINIE
 continuer = 1
 
-
-test
-
 try:
 #Boucle infinie
     while continuer:
@@ -153,7 +150,7 @@ try:
                     #positions pieces
 
 
-                    for i in range(11):
+                    for i in range(12):
                         if cord_piece[i].collidepoint(pos) and p[i]==2:
                             p[i]=1
                             print ("piece cliquée" ,i)
@@ -195,6 +192,7 @@ try:
                         cord_piece[9]=pygame.Rect(765,150,95,120)
                         cord_piece[10]=pygame.Rect(765,275,95,99)
                         cord_piece[11]=pygame.Rect(765,300,95,99)
+
 
                         for i in range (16):
                             p[i]=2
