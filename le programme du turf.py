@@ -137,6 +137,8 @@ pygame.display.flip()
 continuer = 1
 
 
+test
+
 try:
 #Boucle infinie
     while continuer:
