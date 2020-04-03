@@ -12,7 +12,6 @@ from fonctions_test import test
 
 #Ouverture de la fenêtre Pygame
 fenetre = pygame.display.set_mode((1302, 739))
-piecerect1=pygame.Rect(50,50,100,50)
 
 #Chargement et collage du fond
 
@@ -36,9 +35,10 @@ piece9 = pygame.image.load("piece/9.png").convert_alpha()
 piece10 = pygame.image.load("piece/10.png").convert_alpha()
 piece11 = pygame.image.load("piece/11.png").convert_alpha()
 piece12 = pygame.image.load("piece/12.png").convert_alpha()
-
+piece13 = pygame.image.load("piece/13.png").convert_alpha()
+piece14 = pygame.image.load("piece/14.png").convert_alpha()
 #création de la liste piece
-piece=[piece1,piece2,piece3,piece4,piece5,piece6,piece7,piece8,piece9,piece10,piece11,piece12]
+piece=[piece1,piece2,piece3,piece4,piece5,piece6,piece7,piece8,piece9,piece10,piece11,piece12,piece13,piece14]
 
 #création des chaines de caractères des pièces
 #R = rond ou C = carré  ; B = beige ou M = marron  ; G = grande ou P = petite  ; T = avec trou ou S = sans trou.
@@ -54,8 +54,10 @@ piece9v="CBPT"
 piece10v="CMPT"
 piece11v="CBPS"
 piece12v="CMPS"
+piece13v="CBGS"
+piece14v="CBGT"
 #creation de la liste de chaines de caractere des pieces
-piecev=[piece1v,piece2v,piece3v,piece4v,piece5v,piece6v,piece7v,piece8v,piece9v,piece10v,piece11v,piece12v]
+piecev=[piece1v,piece2v,piece3v,piece4v,piece5v,piece6v,piece7v,piece8v,piece9v,piece10v,piece11v,piece12v,piece13v,piece14v]
 
 
 #creation de la liste p
@@ -77,8 +79,10 @@ piecerect9=pygame.Rect(759,15,95,99)
 piecerect10=pygame.Rect(765,150,95,99)
 piecerect11=pygame.Rect(765,275,95,99)
 piecerect12=pygame.Rect(765,400,95,99)
+piecerect13=pygame.Rect(765,525,95,99)
+piecerect14=pygame.Rect(765,700,95,99)
 
-cord_piece=[piecerect1,piecerect2,piecerect3,piecerect4,piecerect5,piecerect6,piecerect7,piecerect8,piecerect9,piecerect10,piecerect11,piecerect12]
+cord_piece=[piecerect1,piecerect2,piecerect3,piecerect4,piecerect5,piecerect6,piecerect7,piecerect8,piecerect9,piecerect10,piecerect11,piecerect12,piecerect13,piecerect14]
 
 lepoucerect=pygame.Rect(950,575,138,157)
 
@@ -97,7 +101,8 @@ fenetre.blit(piece9,piecerect9)
 fenetre.blit(piece10,piecerect10)
 fenetre.blit(piece11,piecerect11)
 fenetre.blit(piece12,piecerect12)
-
+fenetre.blit(piece13,piecerect13)
+fenetre.blit(piece14,piecerect14)
 fenetre.blit(lepouce,lepoucerect)
 
 
@@ -128,7 +133,7 @@ c=[0 for i in range (16)]
 case=[["OOOO" for i in range(4) ] for i in range(4) ]
 
 
-
+print("test")
 
 #Rafraîchissement de l'écran
 pygame.display.flip()
@@ -150,7 +155,7 @@ try:
                     #positions pieces
 
 
-                    for i in range(12):
+                    for i in range(14):
                         if cord_piece[i].collidepoint(pos) and p[i]==2:
                             p[i]=1
                             print ("piece cliquée" ,i)
@@ -192,7 +197,8 @@ try:
                         cord_piece[9]=pygame.Rect(765,150,95,120)
                         cord_piece[10]=pygame.Rect(765,275,95,99)
                         cord_piece[11]=pygame.Rect(765,400,95,99)
-
+                        cord_piece[12]=pygame.Rect(765,525,95,99)
+                        cord_piece[13]=pygame.Rect(765,525,95,99)
 
                         for i in range (16):
                             p[i]=2
@@ -205,7 +211,7 @@ try:
 
         fenetre.blit(fond, (0,0))
         fenetre.blit(reset,resetrect)
-        for x in range (12):
+        for x in range (14):
             fenetre.blit(piece[x],cord_piece[x])
         fenetre.blit(lepouce,lepoucerect)
 
