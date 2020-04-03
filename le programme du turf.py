@@ -35,6 +35,7 @@ piece8 = pygame.image.load("piece/8.png").convert_alpha()
 piece9 = pygame.image.load("piece/9.png").convert_alpha()
 piece10 = pygame.image.load("piece/10.png").convert_alpha()
 piece11 = pygame.image.load("piece/11.png").convert_alpha()
+piece12 = pygame.image.load("piece/11.png").convert_alpha()
 
 #création de la liste piece
 piece=[piece1,piece2,piece3,piece4,piece5,piece6,piece7,piece8,piece9,piece10,piece11]
@@ -52,8 +53,9 @@ piece8v="RBGS"
 piece9v="CBPT"
 piece10v="CMPT"
 piece11v="CBPS"
+piece12v="CMPS"
 #creation de la liste de chaines de caractere des pieces
-piecev=[piece1v,piece2v,piece3v,piece4v,piece5v,piece6v,piece7v,piece8v,piece9v,piece10v,piece11v]
+piecev=[piece1v,piece2v,piece3v,piece4v,piece5v,piece6v,piece7v,piece8v,piece9v,piece10v,piece11v,piece12v]
 
 
 #creation de la liste p
@@ -74,6 +76,7 @@ piecerect8=pygame.Rect(870,10,100,100)
 piecerect9=pygame.Rect(759,15,95,99)
 piecerect10=pygame.Rect(765,150,95,99)
 piecerect11=pygame.Rect(765,275,95,99)
+piecerect12=pygame.Rect(765,300,95,99)
 
 cord_piece=[piecerect1,piecerect2,piecerect3,piecerect4,piecerect5,piecerect6,piecerect7,piecerect8,piecerect9,piecerect10,piecerect11,]
 
@@ -93,6 +96,7 @@ fenetre.blit(piece8,piecerect8)
 fenetre.blit(piece9,piecerect9)
 fenetre.blit(piece10,piecerect10)
 fenetre.blit(piece11,piecerect11)
+fenetre.blit(piece12,piecerect12)
 
 fenetre.blit(lepouce,lepoucerect)
 
@@ -188,6 +192,7 @@ try:
                         cord_piece[8]=pygame.Rect(759,15,95,120)
                         cord_piece[9]=pygame.Rect(765,150,95,120)
                         cord_piece[10]=pygame.Rect(765,275,95,99)
+                        cord_piece[11]=pygame.Rect(765,300,95,99)
 
                         for i in range (16):
                             p[i]=2
@@ -200,7 +205,7 @@ try:
 
         fenetre.blit(fond, (0,0))
         fenetre.blit(reset,resetrect)
-        for x in range (11):
+        for x in range (12):
             fenetre.blit(piece[x],cord_piece[x])
         fenetre.blit(lepouce,lepoucerect)
 
