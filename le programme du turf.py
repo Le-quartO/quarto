@@ -1,7 +1,5 @@
 ﻿import sys, pygame
-
 from pygame.locals import *
-
 pygame.init()
 
 
@@ -13,9 +11,14 @@ from fonctions_test import test
 #Ouverture de la fenêtre Pygame
 fenetre = pygame.display.set_mode((1302, 739))
 
+#importation de la musique
+file = 'musique/funkyraven.mp3'
+pygame.mixer.init()
+pygame.mixer.music.load(file)
+pygame.mixer.music.play(-1)
+
+
 #Chargement et collage du fond
-
-
 fond = pygame.image.load("image/fond.png").convert() # insere une image et la convertie au bon format"perso= pygame.image.load("perso.png").convert_alpha()
 
 #Chargement et collage du pouce et du bouton restart
@@ -37,8 +40,10 @@ piece11 = pygame.image.load("piece/11.png").convert_alpha()
 piece12 = pygame.image.load("piece/12.png").convert_alpha()
 piece13 = pygame.image.load("piece/13.png").convert_alpha()
 piece14 = pygame.image.load("piece/14.png").convert_alpha()
+piece15 = pygame.image.load("piece/15.png").convert_alpha()
+
 #création de la liste piece
-piece=[piece1,piece2,piece3,piece4,piece5,piece6,piece7,piece8,piece9,piece10,piece11,piece12,piece13,piece14]
+piece=[piece1,piece2,piece3,piece4,piece5,piece6,piece7,piece8,piece9,piece10,piece11,piece12,piece13,piece14,piece15]
 
 #création des chaines de caractères des pièces
 #R = rond ou C = carré  ; B = beige ou M = marron  ; G = grande ou P = petite  ; T = avec trou ou S = sans trou.
@@ -56,8 +61,9 @@ piece11v="CBPS"
 piece12v="CMPS"
 piece13v="CBGS"
 piece14v="CBGT"
+piece15v="CNGT"
 #creation de la liste de chaines de caractere des pieces
-piecev=[piece1v,piece2v,piece3v,piece4v,piece5v,piece6v,piece7v,piece8v,piece9v,piece10v,piece11v,piece12v,piece13v,piece14v]
+piecev=[piece1v,piece2v,piece3v,piece4v,piece5v,piece6v,piece7v,piece8v,piece9v,piece10v,piece11v,piece12v,piece13v,piece14v,piece15v]
 
 
 #creation de la liste p
@@ -80,9 +86,10 @@ piecerect10=pygame.Rect(765,150,95,99)
 piecerect11=pygame.Rect(765,275,95,99)
 piecerect12=pygame.Rect(765,400,95,99)
 piecerect13=pygame.Rect(765,525,95,99)
-piecerect14=pygame.Rect(765,700,95,99)
+piecerect14=pygame.Rect(1180,10,95,99)
+piecerect15=pygame.Rect(1180,150,95,99)
 
-cord_piece=[piecerect1,piecerect2,piecerect3,piecerect4,piecerect5,piecerect6,piecerect7,piecerect8,piecerect9,piecerect10,piecerect11,piecerect12,piecerect13,piecerect14]
+cord_piece=[piecerect1,piecerect2,piecerect3,piecerect4,piecerect5,piecerect6,piecerect7,piecerect8,piecerect9,piecerect10,piecerect11,piecerect12,piecerect13,piecerect14,piecerect15]
 
 lepoucerect=pygame.Rect(950,575,138,157)
 
@@ -103,6 +110,7 @@ fenetre.blit(piece11,piecerect11)
 fenetre.blit(piece12,piecerect12)
 fenetre.blit(piece13,piecerect13)
 fenetre.blit(piece14,piecerect14)
+fenetre.blit(piece15,piecerect15)
 fenetre.blit(lepouce,lepoucerect)
 
 
@@ -155,7 +163,7 @@ try:
                     #positions pieces
 
 
-                    for i in range(14):
+                    for i in range(15):
                         if cord_piece[i].collidepoint(pos) and p[i]==2:
                             p[i]=1
                             print ("piece cliquée" ,i)
@@ -198,7 +206,8 @@ try:
                         cord_piece[10]=pygame.Rect(765,275,95,99)
                         cord_piece[11]=pygame.Rect(765,400,95,99)
                         cord_piece[12]=pygame.Rect(765,525,95,99)
-                        cord_piece[13]=pygame.Rect(765,525,95,99)
+                        cord_piece[13]=pygame.Rect(1180,10,95,99)
+                        cord_piece[14]=pygame.Rect(1180,150,95,99)
 
                         for i in range (16):
                             p[i]=2
@@ -211,7 +220,7 @@ try:
 
         fenetre.blit(fond, (0,0))
         fenetre.blit(reset,resetrect)
-        for x in range (14):
+        for x in range (15):
             fenetre.blit(piece[x],cord_piece[x])
         fenetre.blit(lepouce,lepoucerect)
 
