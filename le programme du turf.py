@@ -6,6 +6,8 @@ pygame.init()
 # importation de la fonction test
 
 from fonctions_test import test
+from fonctions_test import test2
+from IA1 import IA
 
 
 #Ouverture de la fenêtre Pygame
@@ -68,6 +70,13 @@ piecev=[piece1v,piece2v,piece3v,piece4v,piece5v,piece6v,piece7v,piece8v,piece9v,
 
 #creation de la liste p
 p=[2 for i in range(16)]
+
+#création des variables pour les joueurs
+ja=1
+jb=0
+#creation d'une variable pour l'ia
+gagnant=0
+g=0
 
 
 # définition des rectangles dans lesquelles aparaissent les pieces
@@ -134,6 +143,7 @@ case15=pygame.Rect(590,500,150,150)
 
 cord_case = [case0, case1, case2,case3,case4,case5,case6,case7,case8,case9,case10,case11,case12,case13,case14,case15]
 
+
 c=[0 for i in range (16)]
 
 
@@ -167,6 +177,15 @@ try:
                         if cord_piece[i].collidepoint(pos) and p[i]==2:
                             p[i]=1
                             print ("piece cliquée" ,i)
+                            #IA
+                            if ja==1:
+                                ja=0
+                                jb=1
+                                IA(case,i,piecev,cord_piece,cord_case,g,p,c)
+
+                            else:
+                                ja=1
+                                jb=0
 
                         for r in range (16):
 
@@ -186,9 +205,6 @@ try:
 
                        test(case)
                        print("test")
-
-
-
 
                     #bouton reset
                     if resetrect.collidepoint(pos):
