@@ -11,7 +11,7 @@ from IA1 import IA
 
 
 #Ouverture de la fenêtre Pygame
-fenetre = pygame.display.set_mode((1302, 739))
+fenetre = pygame.display.set_mode((1800, 739))
 
 #importation de la musique
 file = 'musique/funkyraven.mp3'
@@ -140,6 +140,7 @@ case12=pygame.Rect(110,500,150,150)
 case13=pygame.Rect(270,500,150,150)
 case14=pygame.Rect(430,500,150,150)
 case15=pygame.Rect(590,500,150,150)
+cselection=pygame.Rect(1630,40,150,150)
 
 cord_case = [case0, case1, case2,case3,case4,case5,case6,case7,case8,case9,case10,case11,case12,case13,case14,case15]
 
@@ -178,14 +179,9 @@ try:
                             p[i]=1
                             print ("piece cliquée" ,i)
                             #IA
-                            if ja==1:
-                                ja=0
-                                jb=1
-                                IA(case,i,piecev,cord_piece,cord_case,g,p,c)
+                            cord_piece[i]=cselection
+                            e=i
 
-                            else:
-                                ja=1
-                                jb=0
 
                         for r in range (16):
 
@@ -202,9 +198,18 @@ try:
 
                     #tests
                     if  lepoucerect.collidepoint(pos):
+                        test(case)
+                        print("test")
+                        print(ja)
+                        if ja==1:
+                            ja=0
+                            jb=1
+                            IA(case,e,piecev,cord_piece,cord_case,g,p,c,cselection)
 
-                       test(case)
-                       print("test")
+                        else :
+                            ja=1
+                            jb=0
+
 
                     #bouton reset
                     if resetrect.collidepoint(pos):

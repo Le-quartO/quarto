@@ -3,10 +3,11 @@ from fonctions_test import test2
 from math import*
 import random
 
-def IA(case,i,piecev,cord_piece,cord_case,g,p,c):
+def IA(case,e,piecev,cord_piece,cord_case,g,p,c,cselection):
 
     g=0
     caseg=0
+    i=e
 
     #etat du jeu
     print (case)
@@ -32,7 +33,7 @@ def IA(case,i,piecev,cord_piece,cord_case,g,p,c):
         case[g//4][g%4]=piecev[i]
         p[i]=0
         c[g]=1
-
+    #placement aléatoire
     else:
         while caseg!="OOOO":
             print("alea")
@@ -43,6 +44,13 @@ def IA(case,i,piecev,cord_piece,cord_case,g,p,c):
         cord_piece[i]=cord_case[ca]
         p[i]=0
         c[ca]=1
+
+    #sélection de pièce
+    while p[i]==0:
+        i=random.randint(0,15)
+        #mettre ici les coordonnées de la case ou poser les piéces sélectionnées
+    cord_piece[i]=cselection
+
 
 
 
