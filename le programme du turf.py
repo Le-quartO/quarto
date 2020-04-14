@@ -11,7 +11,7 @@ from IA1 import IA
 
 
 #Ouverture de la fenêtre Pygame
-fenetre = pygame.display.set_mode((1302, 739))
+fenetre = pygame.display.set_mode((1600, 900))
 
 #importation de la musique
 file = 'musique/funkyraven.mp3'
@@ -43,9 +43,10 @@ piece12 = pygame.image.load("piece/12.png").convert_alpha()
 piece13 = pygame.image.load("piece/13.png").convert_alpha()
 piece14 = pygame.image.load("piece/14.png").convert_alpha()
 piece15 = pygame.image.load("piece/15.png").convert_alpha()
+piece16 = pygame.image.load("piece/16.png").convert_alpha()
 
 #création de la liste piece
-piece=[piece1,piece2,piece3,piece4,piece5,piece6,piece7,piece8,piece9,piece10,piece11,piece12,piece13,piece14,piece15]
+piece=[piece1,piece2,piece3,piece4,piece5,piece6,piece7,piece8,piece9,piece10,piece11,piece12,piece13,piece14,piece15,piece16]
 
 #création des chaines de caractères des pièces
 #R = rond ou C = carré  ; B = beige ou M = marron  ; G = grande ou P = petite  ; T = avec trou ou S = sans trou.
@@ -64,8 +65,10 @@ piece12v="CMPS"
 piece13v="CBGS"
 piece14v="CBGT"
 piece15v="CNGT"
+piece15v="CNGT"
+piece16v="CNGS"
 #creation de la liste de chaines de caractere des pieces
-piecev=[piece1v,piece2v,piece3v,piece4v,piece5v,piece6v,piece7v,piece8v,piece9v,piece10v,piece11v,piece12v,piece13v,piece14v,piece15v]
+piecev=[piece1v,piece2v,piece3v,piece4v,piece5v,piece6v,piece7v,piece8v,piece9v,piece10v,piece11v,piece12v,piece13v,piece14v,piece15v,piece16v]
 
 
 #creation de la liste p
@@ -97,8 +100,9 @@ piecerect12=pygame.Rect(765,400,95,99)
 piecerect13=pygame.Rect(765,525,95,99)
 piecerect14=pygame.Rect(1180,10,95,99)
 piecerect15=pygame.Rect(1180,150,95,99)
+piecerect16=pygame.Rect(1240,330,95,99)
 
-cord_piece=[piecerect1,piecerect2,piecerect3,piecerect4,piecerect5,piecerect6,piecerect7,piecerect8,piecerect9,piecerect10,piecerect11,piecerect12,piecerect13,piecerect14,piecerect15]
+cord_piece=[piecerect1,piecerect2,piecerect3,piecerect4,piecerect5,piecerect6,piecerect7,piecerect8,piecerect9,piecerect10,piecerect11,piecerect12,piecerect13,piecerect14,piecerect15,piecerect16]
 
 lepoucerect=pygame.Rect(950,575,138,157)
 
@@ -120,6 +124,7 @@ fenetre.blit(piece12,piecerect12)
 fenetre.blit(piece13,piecerect13)
 fenetre.blit(piece14,piecerect14)
 fenetre.blit(piece15,piecerect15)
+fenetre.blit(piece16,piecerect16)
 fenetre.blit(lepouce,lepoucerect)
 
 
@@ -224,6 +229,7 @@ try:
                         cord_piece[12]=pygame.Rect(765,525,95,99)
                         cord_piece[13]=pygame.Rect(1180,10,95,99)
                         cord_piece[14]=pygame.Rect(1180,150,95,99)
+                        cord_piece[15]=pygame.Rect(1240,330,95,99)
 
                         for i in range (16):
                             p[i]=2
