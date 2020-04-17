@@ -7,7 +7,7 @@ pygame.init()
 
 from fonctions_test import test
 from fonctions_test import test2
-from IA1 import IA
+from Ia2 import IA
 
 
 #Ouverture de la fenêtre Pygame
