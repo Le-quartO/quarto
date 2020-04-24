@@ -63,7 +63,7 @@ piece11v="CBPS"
 piece12v="CMPS"
 piece13v="CBGS"
 piece14v="CBGT"
-piece15v="CNGT"
+piece15v="CMGT"
 #creation de la liste de chaines de caractere des pieces
 piecev=[piece1v,piece2v,piece3v,piece4v,piece5v,piece6v,piece7v,piece8v,piece9v,piece10v,piece11v,piece12v,piece13v,piece14v,piece15v]
 
