@@ -1,0 +1,5 @@
+*.pyc
+__pycache__
+*.pyc
+__pycache__/fonctions_test.cpython-34.pyc
+
