@@ -14,16 +14,15 @@ def IA(case,e,piecev,cord_piece,cord_case,g,p,c,cselection):
     print (piecev[i])
     case2= deepcopy(case)
     print(case2)
+    print("c'est la premiere phase")
     for r in range (16):
             a=r//4
             b=r%4
             if case2[a][b]== "OOOO":
                 #Mode de jeu gagnant
                 case2[a][b]=piecev[i]
-                test2(case2,r)
-                print(a,b,"ah")
+
                 if test2(case2,r)==1:
-                    print ("on sait jamais")
                     g=r
                     caseg=1
                 case2[a][b]="OOOO"
@@ -47,27 +46,54 @@ def IA(case,e,piecev,cord_piece,cord_case,g,p,c,cselection):
             caseg=case[ca//4][ca%4]
 
         case[ca//4][ca%4]=piecev[i]
+        case2[ca//4][ca%4]=piecev[i]
         cord_piece[i]=cord_case[ca]
         p[i]=0
         c[ca]=1
+        print (case2)
 
     #sélection de pièce
     print("selection")
+    m=2
+    sauvetage=0
+    le=[i for i in range(14)]
+    print(le)
+    p2=deepcopy(p)
+    print(p2)
+    while m==2:
+        print("ici")
 
-    for z in range (16):
-        while p[e]!=2:
-            e=random.randint(0,15)
+        while p2[e]!=2:
+            if le==[]:
+                e=random.randint(0,15)
+            else:
+                e=random.choice(le)
+                le.remove(e)
+
+        if le==[]:
+                m=1
+                break
+
+        p2[e]=0
+        m=1
+
+
+        print(e,"et",le)
         for r in range (16):
-
             a=r//4
             b=r%4
             if case2[a][b]== "OOOO":
                 #Mode de jeu gagnant
                 case2[a][b]=piecev[e]
-                print(a,b,"ah")
-                print ("on sait jamais")
-                if test2(case2,r)==0:
-                    cord_piece[e]=cselection
+                if test2(case2,r)==1:
+                    print ("on sait jamais")
+                    m=2
+                    case2[a][b]="OOOO"
+                    break
                 case2[a][b]="OOOO"
 
-            #mettre ici les coordonnées de la case ou poser les piéces sélectionnées
+    print(e,"c'est e")
+
+
+
+    cord_piece[e]=cselection
