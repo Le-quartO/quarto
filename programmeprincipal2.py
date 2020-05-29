@@ -11,7 +11,7 @@ from fonctions_test import test2
 from Ia2 import IA
 
 
-#Ouverture de la fenÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Âªtre Pygame
+#Ouverture de la fenÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Âªtre Pygame
 fenetre = pygame.display.set_mode((1600, 900))
 
 #importation de la musique
@@ -56,11 +56,11 @@ IAimage = pygame.image.load("image/IA.png").convert_alpha()
 plusIA = pygame.image.load("image/IAbarre.png").convert_alpha()
 
 
-#création de la liste piece
+#crÃ©ation de la liste piece
 piece=[piece1,piece2,piece3,piece4,piece5,piece6,piece7,piece8,piece9,piece10,piece11,piece12,piece13,piece14,piece15,piece16]
 
-#création des chaines de caractères des pièces
-#R = rond ou C = carré  ; B = beige ou M = marron  ; G = grande ou P = petite  ; T = avec trou ou S = sans trou.
+#crÃ©ation des chaines de caractÃ¨res des piÃ¨ces
+#R = rond ou C = carrÃ©  ; B = beige ou M = marron  ; G = grande ou P = petite  ; T = avec trou ou S = sans trou.
 piece1v="RBPT"
 piece2v="RMPT"
 piece3v="RMPS"
@@ -75,9 +75,8 @@ piece11v="CBPS"
 piece12v="CMPS"
 piece13v="CBGS"
 piece14v="CBGT"
-piece15v="CNGT"
-piece15v="CNGT"
-piece16v="CNGS"
+piece15v="CMGT"
+piece16v="CMGS"
 #creation de la liste de chaines de caractere des pieces
 piecev=[piece1v,piece2v,piece3v,piece4v,piece5v,piece6v,piece7v,piece8v,piece9v,piece10v,piece11v,piece12v,piece13v,piece14v,piece15v,piece16v]
 
@@ -85,7 +84,7 @@ piecev=[piece1v,piece2v,piece3v,piece4v,piece5v,piece6v,piece7v,piece8v,piece9v,
 #creation de la liste p
 p=[2 for i in range(16)]
 
-#création des variables pour les joueurs
+#crÃ©ation des variables pour les joueurs
 ja=1
 jb=0
 #creation d'une variable pour l'ia
@@ -93,7 +92,7 @@ gagnant=0
 g=0
 
 
-# définition des rectangles dans lesquelles aparaissent les pieces
+# dÃ©finition des rectangles dans lesquelles aparaissent les pieces
 fenetre.blit(fond, (0,0))
 resetrect=pygame.Rect(1140,617,150,150)
 piecerect1=pygame.Rect(900,150,100,100)
@@ -171,13 +170,13 @@ cord_case = [case0, case1, case2,case3,case4,case5,case6,case7,case8,case9,case1
 c=[0 for i in range (16)]
 
 
-#crÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©ation liste des cases
+#crÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â©ation liste des cases
 case=[["OOOO" for i in range(4) ] for i in range(4) ]
 
 
 print("test")
 
-#Rafraîchissement de l'écran
+#RafraÃ®chissement de l'Ã©cran
 pygame.display.flip()
 
 #BOUCLE INFINIE
@@ -186,11 +185,11 @@ continuer = 1
 try:
 #Boucle infinie
     while continuer:
-        for event in pygame.event.get():   #On parcours la liste de tous les événements recus
+        for event in pygame.event.get():   #On parcours la liste de tous les Ã©vÃ©nements recus
             if event.type == QUIT:     #Si un de ces evenements est de type QUIT
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
-                #mouvement piÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¨ce 1
+                #mouvement piÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¨ce 1
 
                 if pygame.mouse.get_pressed()[0]:
                     pos=pygame.mouse.get_pos()
@@ -200,7 +199,7 @@ try:
                     for i in range(16):
                         if cord_piece[i].collidepoint(pos) and p[i]==2:
                             p[i]=1
-                            print ("piece cliqué" ,i)
+                            print ("piece cliquÃ©" ,i)
                             #IA
                             cord_piece[i]=cselection
                             e=i
