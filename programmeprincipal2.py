@@ -1,6 +1,7 @@
 import sys, pygame
 from pygame.locals import *
 pygame.init()
+#-*- coding:Utf-8 -*-
 
 
 # importation de la fonction test
@@ -10,7 +11,7 @@ from fonctions_test import test2
 from Ia2 import IA
 
 
-#Ouverture de la fenÃƒÆ’Ã‚Âªtre Pygame
+#Ouverture de la fenÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Âªtre Pygame
 fenetre = pygame.display.set_mode((1600, 900))
 
 #importation de la musique
@@ -45,11 +46,21 @@ piece14 = pygame.image.load("piece/14.png").convert_alpha()
 piece15 = pygame.image.load("piece/15.png").convert_alpha()
 piece16 = pygame.image.load("piece/16.png").convert_alpha()
 
-#crÃƒÆ’Ã‚Â©ation de la liste piece
+#importation des images de fin
+victoire = pygame.image.load("image/victoire.jpg").convert_alpha()
+perdu = pygame.image.load("image/perdu.jpg").convert_alpha()
+#importation des images de menu
+volume = pygame.image.load("image/volume.png").convert_alpha()
+pasvolume = pygame.image.load("image/volumebarre.png").convert_alpha()
+IAimage = pygame.image.load("image/IA.png").convert_alpha()
+plusIA = pygame.image.load("image/IAbarre.png").convert_alpha()
+
+
+#création de la liste piece
 piece=[piece1,piece2,piece3,piece4,piece5,piece6,piece7,piece8,piece9,piece10,piece11,piece12,piece13,piece14,piece15,piece16]
 
-#crÃƒÆ’Ã‚Â©ation des chaines de caractÃƒÆ’Ã‚Â¨res des piÃƒÆ’Ã‚Â¨ces
-#R = rond ou C = carrÃƒÆ’Ã‚Â©  ; B = beige ou M = marron  ; G = grande ou P = petite  ; T = avec trou ou S = sans trou.
+#création des chaines de caractères des pièces
+#R = rond ou C = carré  ; B = beige ou M = marron  ; G = grande ou P = petite  ; T = avec trou ou S = sans trou.
 piece1v="RBPT"
 piece2v="RMPT"
 piece3v="RMPS"
@@ -74,7 +85,7 @@ piecev=[piece1v,piece2v,piece3v,piece4v,piece5v,piece6v,piece7v,piece8v,piece9v,
 #creation de la liste p
 p=[2 for i in range(16)]
 
-#crÃƒÆ’Ã‚Â©ation des variables pour les joueurs
+#création des variables pour les joueurs
 ja=1
 jb=0
 #creation d'une variable pour l'ia
@@ -82,7 +93,7 @@ gagnant=0
 g=0
 
 
-# dÃƒÆ’Ã‚Â©finition des rectangles dans lesquelles aparaissent les pieces
+# définition des rectangles dans lesquelles aparaissent les pieces
 fenetre.blit(fond, (0,0))
 resetrect=pygame.Rect(1140,617,150,150)
 piecerect1=pygame.Rect(900,150,100,100)
@@ -103,9 +114,14 @@ piecerect15=pygame.Rect(1180,150,95,99)
 piecerect16=pygame.Rect(1240,330,95,99)
 cselection=pygame.Rect(1340,40,150,150)
 
+
 cord_piece=[piecerect1,piecerect2,piecerect3,piecerect4,piecerect5,piecerect6,piecerect7,piecerect8,piecerect9,piecerect10,piecerect11,piecerect12,piecerect13,piecerect14,piecerect15,piecerect16]
 
 lepoucerect=pygame.Rect(950,575,138,157)
+volumerect=pygame.Rect(10,800,117,100)
+v=1
+IAimagerect=pygame.Rect(140,800,117,100)
+IAim=1
 
 
 # affichage des boutons
@@ -127,7 +143,9 @@ fenetre.blit(piece14,piecerect14)
 fenetre.blit(piece15,piecerect15)
 fenetre.blit(piece16,piecerect16)
 fenetre.blit(lepouce,lepoucerect)
-
+fenetre.blit(lepouce,lepoucerect)
+fenetre.blit(volume,volumerect)
+fenetre.blit(IAimage,IAimagerect)
 
 # definition des rectangles des pieces
 case0=pygame.Rect(110,20,150,150)
@@ -153,13 +171,13 @@ cord_case = [case0, case1, case2,case3,case4,case5,case6,case7,case8,case9,case1
 c=[0 for i in range (16)]
 
 
-#crÃƒÆ’Ã‚Â©ation liste des cases
+#crÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©ation liste des cases
 case=[["OOOO" for i in range(4) ] for i in range(4) ]
 
 
 print("test")
 
-#RafraÃƒÆ’Ã‚Â®chissement de l'ÃƒÆ’Ã‚Â©cran
+#Rafraîchissement de l'écran
 pygame.display.flip()
 
 #BOUCLE INFINIE
@@ -168,11 +186,11 @@ continuer = 1
 try:
 #Boucle infinie
     while continuer:
-        for event in pygame.event.get():   #On parcours la liste de tous les ÃƒÆ’Ã‚Â©vÃƒÆ’Ã‚Â©nements reÃƒÆ’Ã‚Â§us
-            if event.type == QUIT:     #Si un de ces ÃƒÆ’Ã‚Â©vÃƒÆ’Ã‚Â©nements est de type QUIT
+        for event in pygame.event.get():   #On parcours la liste de tous les événements recus
+            if event.type == QUIT:     #Si un de ces evenements est de type QUIT
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
-                #mouvement piÃƒÆ’Ã‚Â¨ce 1
+                #mouvement piÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¨ce 1
 
                 if pygame.mouse.get_pressed()[0]:
                     pos=pygame.mouse.get_pos()
@@ -182,10 +200,17 @@ try:
                     for i in range(16):
                         if cord_piece[i].collidepoint(pos) and p[i]==2:
                             p[i]=1
-                            print ("piece cliquÃƒÆ’Ã‚Â©e" ,i)
+                            print ("piece cliqué" ,i)
                             #IA
                             cord_piece[i]=cselection
                             e=i
+                            if ja==1:
+                                  ja=0
+                                  jb=1
+
+                            else :
+                                ja=1
+                                jb=0
 
                         for r in range (16):
 
@@ -195,62 +220,96 @@ try:
                                 c[r]=1
                                 case[r//4][r%4]=piecev[i]
 
+
                                 print ("case",r)
 
+                    def restart(cord_piece,case,p,c):
+                            print("restart")
+                            cord_piece[0]=pygame.Rect(900,150,120,150)
+                            cord_piece[1]=pygame.Rect(900,300,120,150)
+                            cord_piece[2]=pygame.Rect(900,450,120,150)
+                            cord_piece[3]=pygame.Rect(1020,150,100,150)
+                            cord_piece[4]=pygame.Rect(1020,300,100,150)
+                            cord_piece[5]=pygame.Rect(1020,450,100,150)
+                            cord_piece[6]=pygame.Rect(1020,10,100,100)
+                            cord_piece[7]=pygame.Rect(870,10,100,100)
+                            cord_piece[8]=pygame.Rect(759,15,95,120)
+                            cord_piece[9]=pygame.Rect(765,150,95,120)
+                            cord_piece[10]=pygame.Rect(765,275,95,99)
+                            cord_piece[11]=pygame.Rect(765,400,95,99)
+                            cord_piece[12]=pygame.Rect(765,525,95,99)
+                            cord_piece[13]=pygame.Rect(1180,10,95,99)
+                            cord_piece[14]=pygame.Rect(1180,150,95,99)
+                            cord_piece[15]=pygame.Rect(1240,330,95,99)
 
+                            for i in range (16):
+                                p[i]=2
+                                c[i]=0
+
+                            for x in range (4):
+                                for y in range (4):
+                                    case [x][y]="OOOO"
+
+
+                    if volumerect.collidepoint(pos):
+                        if v==1:
+                            v=0
+                            pygame.mixer.music.set_volume(0)
+                        else :
+                            v=1
+                            pygame.mixer.music.set_volume(1)
+
+
+                    if IAimagerect.collidepoint(pos):
+                        restart(cord_piece,case,p,c)
+                        if IAim==1:
+                            IAim=0
+
+                        else :
+                            IAim=1
 
 
                     #tests
                     if  lepoucerect.collidepoint(pos):
+                        if IAim==1:
+                            IA(case,e,piecev,cord_piece,cord_case,g,p,c,cselection)
 
-                       test(case)
-                       print("test")
-                       test(case)
-                       print("test")
-                       print(ja)
-                       if ja==1:
-                          ja=0
-                          jb=1
-                          IA(case,e,piecev,cord_piece,cord_case,g,p,c,cselection)
 
-                       else :
-                            ja=1
-                            jb=0
 
                     #bouton reset
                     if resetrect.collidepoint(pos):
-                        print("restart")
-                        cord_piece[0]=pygame.Rect(900,150,120,150)
-                        cord_piece[1]=pygame.Rect(900,300,120,150)
-                        cord_piece[2]=pygame.Rect(900,450,120,150)
-                        cord_piece[3]=pygame.Rect(1020,150,100,150)
-                        cord_piece[4]=pygame.Rect(1020,300,100,150)
-                        cord_piece[5]=pygame.Rect(1020,450,100,150)
-                        cord_piece[6]=pygame.Rect(1020,10,100,100)
-                        cord_piece[7]=pygame.Rect(870,10,100,100)
-                        cord_piece[8]=pygame.Rect(759,15,95,120)
-                        cord_piece[9]=pygame.Rect(765,150,95,120)
-                        cord_piece[10]=pygame.Rect(765,275,95,99)
-                        cord_piece[11]=pygame.Rect(765,400,95,99)
-                        cord_piece[12]=pygame.Rect(765,525,95,99)
-                        cord_piece[13]=pygame.Rect(1180,10,95,99)
-                        cord_piece[14]=pygame.Rect(1180,150,95,99)
-                        cord_piece[15]=pygame.Rect(1240,330,95,99)
+                        restart(cord_piece,case,p,c)
 
-                        for i in range (16):
-                            p[i]=2
-                            c[i]=0
+        if test(case)!=1:
+            fenetre.blit(fond, (0,0))
+            fenetre.blit(reset,resetrect)
+            for x in range (16):
+                fenetre.blit(piece[x],cord_piece[x])
+            fenetre.blit(lepouce,lepoucerect)
+            fenetre.blit(IAimage,IAimagerect)
+            if v==1:
+                fenetre.blit(volume,volumerect)
+            else:
+                fenetre.blit(pasvolume,volumerect)
+            if IAim==1:
+                fenetre.blit(IAimage,IAimagerect)
+            else:
+                fenetre.blit(plusIA,IAimagerect)
 
-                        for x in range (4):
-                            for y in range (4):
-                                case [x][y]="OOOO"
+        else:
+            fenetre.blit(fond, (0,0))
+
+            if ja==1:
+                fenetre.blit(victoire, (0,0))
+                fenetre.blit(perdu, (800,0))
+            else :
+                fenetre.blit(perdu, (0,0))
+                fenetre.blit(victoire, (800,0))
+            fenetre.blit(reset,resetrect)
 
 
-        fenetre.blit(fond, (0,0))
-        fenetre.blit(reset,resetrect)
-        for x in range (16):
-            fenetre.blit(piece[x],cord_piece[x])
-        fenetre.blit(lepouce,lepoucerect)
+
+
 
         pygame.display.flip()
 
